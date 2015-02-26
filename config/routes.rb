@@ -53,4 +53,11 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+  constraints(Subscribem::Constraints::SubdomainRequired) do
+    root :to => "welcome#index", :as => :account_root
+  end
+
+  mount Subscribem::Engine => "/"
+
 end
